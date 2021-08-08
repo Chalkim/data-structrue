@@ -5,12 +5,13 @@
 
 void deleteAllElementByValue(SqList& list, int x){
 	if(list.length == 0) return;
-	
-	for(int i = 0, int j = 0; i < list.length; i++, j++) {
-		if(list.data[i] == x) {
-			j++; list.length--;
+
+	int i, j;
+	for(i = 0, j = 0; j < list.length; j++) {
+		if(list.data[j] != x) {
 			list.data[i] = list.data[j];
+			i++;
 		}
-		list.data[i] = list.data[j];
 	}
+	list.length = i;
 }
