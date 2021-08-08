@@ -45,8 +45,13 @@ LNode* linklistGetElementByIndex(LinkList list, int i){
     return p;
 }
 
-// TODO: GetElementByValue
-LNode* linklistGetElementByValue(LinkList list, ElemType value){}
+LNode* linklistGetElementByValue(LinkList list, ElemType value){
+    LNode* p = list->next;
+    while(p!=NULL && p->data!=value)
+        p = p->next;
+
+    return p;
+}
 
 // TODO: InsertByIndex
 void linklistInsertByIndex(LinkList list, int i, ElemType value){}
@@ -81,5 +86,8 @@ int main() {
 
     int index = 3;
     printf("Value of the node which index is '%d': %d\n", index, linklistGetElementByIndex(test, index)->data);
+
+    int value = 5;
+    printf("Next of the node which value is '%d': %d\n", value, linklistGetElementByValue(test, value)->next->data);
     return 0;
 }
