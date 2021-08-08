@@ -7,10 +7,10 @@ void deleteAllElementByValue(SqList& list, int x){
 	if(list.length == 0) return;
 	
 	for(int i = 0, int j = 0; i < list.length; i++, j++) {
-		list.data[i] = list.data[j];
 		if(list.data[i] == x) {
 			j++; list.length--;
 			list.data[i] = list.data[j];
 		}
+		list.data[i] = list.data[j];
 	}
 }
