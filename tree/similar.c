@@ -37,6 +37,7 @@ int main() {
     TreeNode_t* s = newTree(12);
     s->left = newTree(11);
     s->right = newTree(10);
+    s->right->left = newTree(102);
     s->left->left = newTree(1);
     s->left->right = newTree(2);
     if(similar(t, s)) printf("similar!\n");

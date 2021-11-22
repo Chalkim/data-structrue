@@ -6,8 +6,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef struct node
-{
+typedef struct node {
     char data[10];
     struct node *left, *right;
 } BTree;
@@ -20,17 +19,22 @@ BTree* newNode(char data) {
     return t;
 }
 
+/*
+ * test whether it is a leaf node
+ */
 bool isLeaf(BTree* node) {
     if(!node) return false;
     return !node->left && !node->right;
 }
 
+/*
+ * print tree as an infix expression
+ */
 void printBTree(BTree* root, bool bracket) {
     if(!root) return;
     bool lb = true, rb = true;
     if(isLeaf(root->left)) lb=false;
     if(isLeaf(root->right)) rb=false;
-
     if(bracket) printf("(");
     printBTree(root->left, lb);
     printf("%s", root->data);
@@ -38,8 +42,7 @@ void printBTree(BTree* root, bool bracket) {
     if(bracket) printf(")");
 }
 
-int main()
-{
+int main() {
     BTree* m = newNode('*');
     m->left = newNode('+');
     m->left->left = newNode('a');
